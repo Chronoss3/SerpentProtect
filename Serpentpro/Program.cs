@@ -32,14 +32,6 @@ namespace Serpentpro
                 Logger = DummyLogger.NoThrowInstance
             });
         }
-        public static void Md5(string filePath)
-        {
-            byte[] md5bytes = MD5.Create().ComputeHash(File.ReadAllBytes(filePath));
-            using (var stream = new FileStream(filePath, FileMode.Append))
-            {
-                stream.Write(md5bytes, 0, md5bytes.Length);
-            }
-        }
         public static void AntiDumpExecute(ModuleDef mod)
         {
             var typeModule = ModuleDefMD.Load(typeof(AntiDump).Module);
